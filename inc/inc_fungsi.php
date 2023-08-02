@@ -44,6 +44,14 @@ function ambil_tanggalkeluar($id_tulisan){
     $text   = strip_tags($r1['tanggalkeluar']);
     return $text;
 }
+function ambil_namapenerima($id_tulisan){
+    global $koneksi;
+    $sql1   = "select * from halaman where id = '$id_tulisan'";
+    $q1     = mysqli_query($koneksi,$sql1);
+    $r1     = mysqli_fetch_array($q1);
+    $text   = strip_tags($r1['namapenerima']);
+    return $text;
+}
 function ambil_note($id_tulisan){
     global $koneksi;
     $sql1   = "select * from halaman where id = '$id_tulisan'";
