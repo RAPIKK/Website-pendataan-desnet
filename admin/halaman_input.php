@@ -3,6 +3,7 @@
 $barang            = "";
 $tanggal_masuk     = "";
 $tanggal_keluar    = "";
+$nama_penerima     = "";
 $note              = "";
 $error             = "";
 $sukses            = "";
@@ -20,6 +21,7 @@ if($id != ""){
     $barang  = $r1['barang'];
     $tanggal_masuk      = $r1['tanggal_masuk'];
     $tanggal_keluar     = $r1['tanggal_keluar'];
+    $nama_penerima    = $r1['nama_penerima'];
     $note               = $r1['note'];
 
     if($barang == ''){
@@ -31,6 +33,7 @@ if (isset($_POST['simpan'])) {
     $barang             = $_POST['barang'];
     $tanggal_keluar     = $_POST['tanggal_keluar'];
     $tanggal_masuk      = $_POST['tanggal_masuk'];
+    $nama_penerima      = $_POST['nama_penerima'];
     $note               = $_POST['note'];
 
     if ($barang == '' or $tanggal_masuk == '') {
@@ -39,9 +42,9 @@ if (isset($_POST['simpan'])) {
 
     if (empty($error)) {
         if($id != ""){
-            $sql1   = "update halaman set barang = '$barang',tanggal_masuk='$tanggal_masuk',tanggal_keluar='$tanggal_keluar',note='$note'";
+            $sql1   = "update halaman set barang = '$barang',tanggal_masuk='$tanggal_masuk',tanggal_keluar='$tanggal_keluar',nama_penerima='$nama_penerima'note='$note'";
         }else{
-            $sql1       = "insert into halaman(barang,tanggal_masuk,tanggal_keluar,note) values ('$barang','$tanggal_masuk','$tanggal_keluar','$note')";
+            $sql1       = "insert into halaman(barang,tanggal_masuk,tanggal_keluar,nama_penerima,note) values ('$barang','$tanggal_masuk','$tanggal_keluar','$nama_penerima','$note')";
         }
 
         $q1         = mysqli_query($koneksi, $sql1);
@@ -93,6 +96,12 @@ if ($sukses) {
         <label for="tanggal_keluar" class="col-sm-2 col-form-label">Tanggal Keluar</label>
         <div class="col-sm-10">
             <input type="text" class="form-control" id="tanggal_keluar" value="<?php echo $tanggal_keluar ?>" name="tanggal_keluar">
+        </div>
+    </div>
+    </div>
+        <label for="nama_penerima" class="col-sm-2 col-form-label">Nama Penerima</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="nama_penerima" value="<?php echo $nama_penerima ?>" name="nama_penerima">
         </div>
     </div>
     <div class="mb-3 row">
