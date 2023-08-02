@@ -46,6 +46,7 @@ if ($sukses) {
             <th>Barang</th>
             <th>Tanggal Masuk</th>
             <th>Tanggal Keluar</th>
+            <th>Nama Penerima</th>
             <th>Note</th>
             <th class="col-2">Aksi</th>
         </tr>
@@ -79,6 +80,7 @@ if ($sukses) {
                 <td><?php echo $r1['barang'] ?></td>
                 <td><?php echo $r1['tanggal_masuk'] ?></td>
                 <td><?php echo $r1['tanggal_keluar'] ?></td>
+                <td><?php echo $r1['nama_penerima'] ?></td>
                 <td><?php echo $r1['note'] ?></td>
                 <td>
                     <a href="halaman_input.php?id=<?php echo $r1['id']?>">
