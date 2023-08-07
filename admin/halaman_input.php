@@ -42,9 +42,9 @@ if (isset($_POST['simpan'])) {
 
     if (empty($error)) {
         if($id != ""){
-            $sql1   = "update halaman set barang = '$barang',tanggal_masuk='$tanggal_masuk',tanggal_keluar='$tanggal_keluar',nama_penerima='$nama_penerima',note='$note'";
+            $sql1   = "UPDATE halaman set barang = '$barang',tanggal_masuk='$tanggal_masuk',tanggal_keluar='$tanggal_keluar',nama_penerima='$nama_penerima',note='$note' WHERE id = '$id'";
         }else{
-            $sql1       = "insert into halaman(barang,tanggal_masuk,tanggal_keluar,nama_penerima,note) values ('$barang','$tanggal_masuk','$tanggal_keluar','$nama_penerima','$note')";
+            $sql1       = "INSERT INTO halaman(barang,tanggal_masuk,tanggal_keluar,nama_penerima,note) values ('$barang','$tanggal_masuk','$tanggal_keluar','$nama_penerima','$note')";
         }
 
         $q1         = mysqli_query($koneksi, $sql1);
