@@ -21,7 +21,7 @@ if($id != ""){
     $barang  = $r1['barang'];
     $tanggal_masuk      = $r1['tanggal_masuk'];
     $tanggal_keluar     = $r1['tanggal_keluar'];
-    $nama_penerima    = $r1['nama_penerima'];
+    $nama_penerima      = $r1['nama_penerima'];
     $note               = $r1['note'];
 
     if($barang == ''){
@@ -42,7 +42,7 @@ if (isset($_POST['simpan'])) {
 
     if (empty($error)) {
         if($id != ""){
-            $sql1   = "update halaman set barang = '$barang',tanggal_masuk='$tanggal_masuk',tanggal_keluar='$tanggal_keluar',nama_penerima='$nama_penerima'note='$note'";
+            $sql1   = "update halaman set barang = '$barang',tanggal_masuk='$tanggal_masuk',tanggal_keluar='$tanggal_keluar',nama_penerima='$nama_penerima',note='$note'";
         }else{
             $sql1       = "insert into halaman(barang,tanggal_masuk,tanggal_keluar,nama_penerima,note) values ('$barang','$tanggal_masuk','$tanggal_keluar','$nama_penerima','$note')";
         }
@@ -51,7 +51,7 @@ if (isset($_POST['simpan'])) {
         if ($q1) {
             $sukses     = "Sukses memasukkan data";
         } else {
-            $error      = "Gagal memasukkan data";
+            $error      = "Gagal memasukkan data: " . mysqli_error($koneksi);
         }
     }
 }
@@ -97,7 +97,6 @@ if ($sukses) {
         <div class="col-sm-10">
             <input type="text" class="form-control" id="tanggal_keluar" value="<?php echo $tanggal_keluar ?>" name="tanggal_keluar">
         </div>
-    </div>
     </div>
         <label for="nama_penerima" class="col-sm-2 col-form-label">Nama Penerima</label>
         <div class="col-sm-10">
